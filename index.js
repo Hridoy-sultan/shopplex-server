@@ -21,11 +21,6 @@ client.connect(err => {
     const ProductCollection = client.db("shopplex").collection("shopplexCollection");
     console.log('database connected');
 
-    app.get('/', (req, res) => {
-        res.send('hello world h!');
-
-    });
-
 
 
     app.get('/product', (req, res) => {
