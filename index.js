@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
-const port = 5055;
+const port = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -24,7 +24,6 @@ client.connect(err => {
     app.get('/product', (req, res) => {
         ProductCollection.find()
             .toArray((err, items) => {
-                // console.log('item', items);
                 res.send(items)
 
             })
@@ -44,12 +43,11 @@ client.connect(err => {
 
 app.get('/', (req, res) => {
     res.send('hello world h!');
-    console.log('hello w');
 
 });
 
 
 
 
-app.listen(port);
+app.listen(process.env.PORT || port);
 
