@@ -33,11 +33,11 @@ client.connect(err => {
 
     app.post('/addProduct', (req, res) => {
         const product = req.body;
-        // ProductCollection.insertOne(product)
-        //     .then(result => {
-        //         res.send(result.insertedCount > 0)
+        ProductCollection.insertOne(product)
+            .then(result => {
+                res.send(result.insertedCount > 0)
 
-        //     })
+            })
 
 
     })
